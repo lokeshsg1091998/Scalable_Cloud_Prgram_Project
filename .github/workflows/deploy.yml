@@ -14,10 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Set up Python 3.10
+    - name: Set up Python 3.12
       uses: actions/setup-python@v5
       with:
-        python-version: "3.10"
+        python-version: "3.12"
         
     - name: Install dependencies
       run: |
@@ -48,21 +48,21 @@ jobs:
         
     - name: Create deployment package
       run: |
-        zip -r deployment.zip . -x "*.git*"
+        zip -r Finance_calcy.zip . -x "*.git*"
 
     - name: Upload to S3
       run: |
-        aws s3 cp deployment.zip s3://elasticbeanstalk-us-east-1-766907158656/deployment.zip
+        aws s3 cp Finance_calcy.zip s3://elasticbeanstalk-us-east-1-766907158656/Finance_calcy.zip
 
     - name: Create new EB version
       run: |
         aws elasticbeanstalk create-application-version \
-          --application-name Finance-app \
+          --application-name Finance-calculators \
           --version-label v-${{ github.run_number }} \
-          --source-bundle S3Bucket="elasticbeanstalk-us-east-1-766907158656",S3Key="deployment.zip"
+          --source-bundle S3Bucket="elasticbeanstalk-us-east-1-766907158656",S3Key="Finance_calcy.zip"
 
     - name: Deploy to Elastic Beanstalk
       run: |
         aws elasticbeanstalk update-environment \
-          --environment-name finance-app-env \
+          --environment-name Finance-calculators-env \
           --version-label v-${{ github.run_number }}
