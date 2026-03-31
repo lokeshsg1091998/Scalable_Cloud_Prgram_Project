@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance Calculator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header class="hero">
+    <h1>🛡 Insurance Calculator</h1>
+    <p>Premium Estimation</p>
+</header>
+
+<div class="dashboard-grid single-page">
+
+    <div class="card">
+
+        <div class="card-top">
+            <a href="/" class="back-link">← Back</a>
+        </div>
+
+        <div class="card-header">
+            <h2>Insurance Premium</h2>
+            <span class="badge">API</span>
+        </div>
+
+    <form id="insurance-form" class="calc-form">
+
+        <label>Age</label>
+        <input id="age" name="age" required>
+
+        <label>Policy Term (Years)</label>
+        <input id="term_years" name="term_years" required>
+
+        <label>Sum Assured (€)</label>
+        <input id="sum_assured" name="sum_assured" required>
+
+        <label>Gender</label>
+        <select id="gender" name="gender">
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+
+        <label>Smoker</label>
+        <select id="smoker" name="smoker">
+            <option>No</option>
+            <option>Yes</option>
+        </select>
+
+        <label>Payment Frequency</label>
+        <select id="payment_frequency" name="payment_frequency">
+            <option>Monthly</option>
+            <option>Yearly</option>
+        </select>
+
+        <button type="submit">Estimate Premium</button>
+    </form>
+
+    <div id="insurance-result" class="result-box"></div>
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>

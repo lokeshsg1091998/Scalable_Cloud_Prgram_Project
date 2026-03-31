@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header class="hero">
+    <h1>🏠 Loan Calculator</h1>
+    <p>EMI Calculation</p>
+</header>
+
+<div class="dashboard-grid single-page">
+
+    <div class="card">
+
+        <!-- ✅ FIXED BACK BUTTON -->
+        <div class="card-top">
+            <a href="/" class="back-link">← Back</a>
+        </div>
+
+        <div class="card-header">
+            <h2>Loan EMI</h2>
+            <span class="badge">API</span>
+        </div>
+
+        <form id="loan-form" class="calc-form">
+
+            <label>Loan Amount (€)</label>
+            <input id="principal" name="principal" required>
+
+            <label>Interest Rate (%)</label>
+            <input id="annual_rate" name="annual_rate" required>
+
+            <label>Loan Tenure (Years)</label>
+            <input id="years" name="years" required>
+
+            <button type="submit">Calculate EMI</button>
+        </form>
+
+        <div id="loan-result" class="result-box"></div>
+
+    </div>
+
+</div>
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>

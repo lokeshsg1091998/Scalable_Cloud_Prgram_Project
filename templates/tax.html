@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header class="hero">
+    <h1>📊 Tax Calculator</h1>
+    <p>Ireland Tax Computation</p>
+</header>
+
+<div class="dashboard-grid single-page">
+
+    <div class="card">
+
+        <div class="card-top">
+            <a href="/" class="back-link">← Back</a>
+        </div>
+
+        <div class="card-header">
+            <h2>Tax Calculation</h2>
+            <span class="badge">CORE</span>
+        </div>
+
+    <form id="tax-form" class="calc-form">
+        <label>Gross Income (€)</label>
+        <input id="gross" name="gross" required>
+
+        <label>Deductions (€)</label>
+        <input id="deductions" name="deductions" required>
+
+        <button type="submit">Calculate Tax</button>
+    </form>
+
+    <div id="tax-result" class="result-box"></div>
+
+    <div class="info-box">
+        <h3>Ireland Tax Rules</h3>
+        <ul>
+            <li>20% up to €42,000</li>
+            <li>40% above €42,000</li>
+            <li>USC: 0.5% → 8%</li>
+            <li>PRSI: 4%</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <h3>🌍 International Salary Conversion</h3>
+
+        <select id="country-select">
+            <option disabled selected>Select Country</option>
+            <option value="GBP">United Kingdom</option>
+            <option value="USD">United States</option>
+            <option value="AUD">Australia</option>
+            <option value="CAD">Canada</option>
+            <option value="INR">India</option>
+        </select>
+
+        <div id="comparison-result"></div>
+    </div>
+
+</div>
+
+</div>
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>
